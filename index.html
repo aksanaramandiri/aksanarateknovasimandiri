@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aksanara - IN THE FUTURE TECHNOLOGY IS DEVELOPING VERY FAST</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            overflow-x: hidden;
+            background: #fff;
+        }
+
+        /* Animated Background */
+        .animated-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .animated-bg span {
+    position: absolute;
+    display: block;
+    /* GANTI BAGIAN INI: Menggunakan gambar sebagai latar */
+    background-image: url('aksanara.png'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    bottom: -150px;
+    animation: animate 25s linear infinite;
+    opacity: 0.15; /* Atur transparansi agar teks tetap terbaca */
+    border-radius: 0; /* Hapus border-radius agar logo tidak terpotong bulat */
+}
+        
+
+        .animated-bg span:nth-child(1) {
+            left: 25%;
+            width: 80px;
+            height: 80px;
+            animation-delay: 0s;
+        }
+
+        .animated-bg span:nth-child(2) {
+            left: 10%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 2s;
+            animation-duration: 12s;
+        }
+
+        .animated-bg span:nth-child(3) {
+            left: 70%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 4s;
+        }
+
+        .animated-bg span:nth-child(4) {
+            left: 40%;
+            width: 60px;
+            height: 60px;
+            animation-delay: 0s;
+            animation-duration: 18s;
+        }
+
+        .animated-bg span:nth-child(5) {
+            left: 65%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 0s;
+        }
+
+        .animated-bg span:nth-child(6) {
+            left: 75%;
+            width: 110px;
+            height: 110px;
+            animation-delay: 3s;
+        }
+
+        .animated-bg span:nth-child(7) {
+            left: 35%;
+            width: 150px;
+            height: 150px;
+            animation-delay: 7s;
+        }
+
+        .animated-bg span:nth-child(8) {
+            left: 50%;
+            width: 25px;
+            height: 25px;
+            animation-delay: 15s;
+            animation-duration: 45s;
+        }
+
+        .animated-bg span:nth-child(9) {
+            left: 20%;
+            width: 15px;
+            height: 15px;
+            animation-delay: 2s;
+            animation-duration: 35s;
+        }
+
+        .animated-bg span:nth-child(10) {
+            left: 85%;
+            width: 150px;
+            height: 150px;
+            animation-delay: 0s;
+            animation-duration: 11s;
+        }
+
+        @keyframes animate {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0.1;
+            }
+            50% {
+                opacity: 0.2;
+            }
+            100% {
+                transform: translateY(-1000px) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 1.2rem 5%;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 0.8rem 5%;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #4c2b82, #cb35eb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 1.1rem;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #4c2b82, #cb35eb);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: #4c2b82;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #4c2b82;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 5%;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #4c2b82, #0072ae, #cb35eb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.8rem;
+            color: #666;
+            margin-bottom: 2.5rem;
+            animation: fadeInUp 1s ease 0.2s backwards;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: linear-gradient(135deg, #4c2b82, #cb35eb);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 1s ease 0.4s backwards;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(76, 43, 130, 0.3);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Sections */
+        section {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #4c2b82, #cb35eb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 4rem;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .about-card {
+            padding: 3rem;
+            background: linear-gradient(135deg, rgba(76, 43, 130, 0.05), rgba(203, 53, 235, 0.05));
+            border-radius: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .about-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(76, 43, 130, 0.15);
+            border: 2px solid #cb35eb;
+        }
+
+        .about-card h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #4c2b82;
+        }
+
+        .about-card p {
+            color: #666;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        /* Pengaturan umum untuk semua kartu di Why Choose Us */
+.about-card {
+    padding: 3rem;
+    border-radius: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 0px solid transparent;
+    position: relative;
+    overflow: hidden; /* Agar gambar tidak keluar dari sudut membulat */
+    background-size: cover; /* Menyesuaikan gambar dengan ukuran kotak */
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+/* Mengatur gambar spesifik untuk tiap kotak dengan overlay transparan */
+/* Overlay digunakan agar teks tetap mudah dibaca di atas gambar */
+.card-1 { 
+    background-image: linear-gradient(rgba(255, 255, 255, 120), rgba(255, 255, 255, 0.85)), url('bgs1.png'); 
+}
+.card-2 { 
+    background-image: linear-gradient(rgba(255, 255, 255, 120), rgba(255, 255, 255, 0.85)), url('bgs2.png'); 
+}
+.card-3 { 
+    background-image: linear-gradient(rgba(255, 255, 255, 120), rgba(255, 255, 255, 0.85)), url('bgs3.png'); 
+}
+
+/* Efek saat kursor diarahkan (Hover) */
+.about-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(76, 43, 130, 0.15);
+    border: 2px solid #cb35eb;
+}
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            padding: 2.5rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid #f0f0f0;
+
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(76, 43, 130, 0.2);
+            border: 2px solid #cb35eb;
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 1.5rem auto; 
+            background: linear-gradient(135deg, #4c2b82, #cb35eb);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            background: linear-gradient(135deg, #4c2b82, #cb35eb);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #4c2b82;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+     /* Mengatur grid agar otomatis menyesuaikan jumlah logo */
+.logo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Ukuran kotak lebih kecil agar muat 12 */
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+/* Styling kartu logo client */
+.logo-item {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100px;
+    transition: transform 0.3s ease;
+}
+
+.logo-item:hover {
+    transform: translateY(-5px);
+}
+
+/* Mengatur ukuran gambar logo di dalam kotak */
+.logo-item img {
+    max-width: 120%;
+    max-height: 150px; /* Batas tinggi agar semua logo terlihat sejajar */
+    object-fit: contain;
+    filter: grayscale(100%); /* Membuat semua logo hitam putih agar seragam */
+    opacity: 0.6;
+    transition: all 0.3s ease;
+}
+
+.logo-item:hover img {
+    filter: grayscale(0%); /* Logo berwarna saat disentuh kursor */
+    opacity: 1;
+}
+
+/* Container untuk partner teks */
+.text-partner-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px dashed #ddd; /* Memberi batas halus dengan bagian logo */
+}
+
+/* Gaya masing-masing teks partner */
+.text-partner-item {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #4c2b82; /* Menggunakan warna ungu utama Aksanara */
+    background: rgba(76, 43, 130, 0.05);
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.text-partner-item:hover {
+    background: linear-gradient(135deg, #4c2b82, #cb35eb);
+    color: white;
+    transform: scale(1.05);
+}
+
+        /* Promo Section */
+        .promo-section {
+            background: linear-gradient(135deg, #4c2b82, #0072ae, #cb35eb);
+            color: white;
+            padding: 5rem 5%;
+            text-align: center;
+            margin: 4rem 5%;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(76, 43, 130, 0.3);
+        }
+
+        .promo-section h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .promo-section p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .promo-discount {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .promo-button {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: white;
+            color: #4c2b82;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .promo-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Contact Section */
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, rgba(76, 43, 130, 0.05), rgba(203, 53, 235, 0.05));
+            padding: 3rem;
+            border-radius: 20px;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            margin: 2rem 0;
+        }
+
+        .contact-item h3 {
+            color: #4c2b82;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item a {
+            color: #0072ae;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: #cb35eb;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 3rem 5%;
+        }
+
+        footer p {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                left: -100%;
+                top: 80px;
+                flex-direction: column;
+                background: rgba(255, 255, 255, 0.98);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 2rem 0;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .promo-section h2 {
+                font-size: 2rem;
+            }
+
+            .promo-discount {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">Aksanara Teknovasi Mandiri</div>
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="animated-bg">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="hero-content">
+            <h1>AKSANARA</h1>
+            <p>IN THE FUTURE TECHNOLOGY IS DEVELOPING VERY FAST</p>
+            <a href="#contact" class="cta-button">Get Started</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">Why Choose Us</h2>
+        <p class="section-subtitle">PT Aksanara Teknovasi Mandiri
+Perusahaan teknologi berbasis digital yang berdiri untuk menjawab
+kebutuhan industri terhadap layanan teknologi informasi yang
+komprehensif, inovatif, dan terpercaya. Dengan cakupan layanan yang
+luas dari pengembangan perangkat lunak, konsultasi IT dan manajemen,
+hingga penyediaan platform digital dan jasa perdagangan besar.
+Aksanara hadir sebagai mitra strategis dalam mendukung transformasi
+digital berbagai sektor usaha.
+</p>
+        <div class="about-grid">
+            <div class="about-card card-1">
+                <h3>Strategy</h3>
+                <p>Kami merancang strategi digital menyeluruh yang disesuaikan dengan tujuan bisnis Anda. Pendekatan berbasis data memastikan setiap keputusan meningkatkan ROI dan mendorong pertumbuhan di tengah persaingan digital..</p>
+            </div>
+            <div class="about-card card-2">
+                <h3>Innovation</h3>
+                <p>Dengan memanfaatkan teknologi terkini dan solusi kreatif, kami mewujudkan visi Anda menjadi nyata. Tim kami selalu mengikuti tren industri untuk menghadirkan solusi inovatif yang membedakan Anda dari kompetitor.</p>
+            </div>
+            <div class="about-card card-3">
+                <h3>Excellence</h3>
+                <p>Kualitas menjadi inti dari setiap proses yang kami jalankan. Dari konsep hingga eksekusi, kami menjaga standar tertinggi agar brand Anda mendapatkan layanan dan hasil terbaik.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section>
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-subtitle">Comprehensive digital solutions for modern businesses</p>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">💻</div>
+                <h3>Pengembangan Platform Digital & Transaksi Elektronik</h3>
+                <p>Pengembangan portal dan platform digital berbasis transaksi online untuk marketplace,
+layanan berbasis permintaan (on-demand services)</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🌐</div>
+                <h3>Konsultasi IT dan Sistem Informasi</h3>
+                <p>Kami menyediakan layanan konsultasi menyeluruh, termasuk:
+Analisis dan desain sistem informasi, Pemrograman custom sesuai kebutuhan, Implementasi & pelatihan sistem, Keamanan informasi.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎨</div>
+                <h3>Software Development & Publishing</h3>
+                <p>Kami merancang, membangun, dan menerbitkan perangkat lunak siap pakai untuk berbagai
+kebutuhan bisnis, termasuk: Sistem operasi dan tools produktifitas, Aplikasi bisnis sepert ERP, CRM, dan HRIS
+.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📱</div>
+                <h3>Layanan Interkoneksi</h3>
+                <p>Kami menyediakan layanan untuk menghubungkan jaringan antar-operator agar komunikasi
+berjalan lancar, aman, dan efisien. Selain itu.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📦</div>
+                <h3>Jasa Multimedia</h3>
+                <p>Kami menyediakan layanan digital audio, video, dan data untuk kebutuhan hiburan, edukasi, dan bisnis.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎯</div>
+                <h3>Web Development</h3>
+                <p>Kami menyediakan produk web development berupa pembuatan dan pengelolaan website yang fungsional, cepat, dan siap mendukung kebutuhan bisnis. Produk ini membantu meningkatkan kredibilitas, konversi, dan efisiensi operasional klien..</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section>
+    <h2 class="section-title">Our Project</h2>
+    <p class="section-subtitle">Trusted by industry leaders (Multimedia) </p>
+    <div class="logo-grid partner-grid">
+    <div class="logo-item">
+        <img src="partner1.png" alt="Partner 1" style="max-width: 80%; max-height: 80%; object-fit: contain;">
+    </div>
+    <div class="logo-item">
+        <img src="partner2.png" alt="Partner 2" style="max-width: 80%; max-height: 80%; object-fit: contain;">
+    </div>
+    <div class="logo-item">
+        <img src="partner3.png" alt="Partner 3" style="max-width: 80%; max-height: 80%; object-fit: contain;">
+    </div>
+    <div class="logo-item">
+        <img src="partner4.png" alt="Partner 4" style="max-width: 80%; max-height: 80%; object-fit: contain;">
+    </div>
+    <div class="logo-item">
+        <img src="partner5.png" alt="Partner 5" style="max-width: 80%; max-height: 80%; object-fit: contain;">
+    </div>
+    <div class="logo-item">
+        <img src="partner6.png" alt="Partner 6" style="max-width: 80%; max-height: 80%; object-fit: contain;">
+    </div>
+    <div class="logo-item">
+        <img src="partner7.png" alt="Partner 7" style="max-width: 80%; max-height: 80%; object-fit: contain;">
+    </div>
+    <div class="logo-item">
+        <img src="partner8.png" alt="Partner 8" style="max-width: 80%; max-height: 80%; object-fit: contain;">
+    </div>
+</div>
+
+<div class="text-partner-grid">
+        <div class="text-partner-item">PT. Bintang Sarana Medika</div>
+        <div class="text-partner-item">PT. Cahaya Manunggal</div>
+        <div class="text-partner-item">PT. Iwatani</div>
+        <div class="text-partner-item">Duta Indah Group</div>
+        <div class="text-partner-item">PT. Total Bangunan Persada</div>
+        <div class="text-partner-item">PT. Intouch Innovate Indonesia</div>
+        <div class="text-partner-item">PT. Harita Prima Abadi Minera</div>
+        <div class="text-partner-item">PT. Bintang Chemical Indonesia</div>
+        <div class="text-partner-item">PT. Kalmed Sejahtera Indonesia</div>
+        <div class="text-partner-item">PT. Cipta Dana</div>
+        <div class="text-partner-item">Assera Group</div>
+        <div class="text-partner-item">Asegaran Group</div>
+        <div class="text-partner-item">Perum Bulog</div>
+        <div class="text-partner-item">PT. Mitra Perdana Nuansa - 23 Paskal</div>
+        <div class="text-partner-item">KAP S.Mannan, Ardiansyah & Rekan</div>
+        <div class="text-partner-item">PT Indogal Agro Trading</div>
+        <div class="text-partner-item">PT Meiji Food Indonesia</div>
+        <div class="text-partner-item">PT BNP Paribas AM</div>
+        <div class="text-partner-item">BAPENDA Jabar</div>
+        <div class="text-partner-item">PT NATURAL PERSADA MANDIRI</div>
+
+
+    </div>
+
+</section>
+
+    <!-- Clients Section -->
+    <section>
+    <h2 class="section-title">Our Clients</h2>
+    <p class="section-subtitle">Social Media Management</p>
+    <div class="logo-grid">
+        <div class="logo-item"><img src="client1.png" alt="Client 1"></div>
+        <div class="logo-item"><img src="client2.png" alt="Client 2"></div>
+        <div class="logo-item"><img src="client3.png" alt="Client 3"></div>
+        <div class="logo-item"><img src="client4.png" alt="Client 4"></div>
+        <div class="logo-item"><img src="client5.png" alt="Client 5"></div>
+        <div class="logo-item"><img src="client6.png" alt="Client 6"></div>
+        <div class="logo-item"><img src="client7.png" alt="Client 7"></div>
+        <div class="logo-item"><img src="client8.png" alt="Client 8"></div>
+        <div class="logo-item"><img src="client9.png" alt="Client 9"></div>
+        <div class="logo-item"><img src="client10.png" alt="Client 10"></div>
+        <div class="logo-item"><img src="client11.png" alt="Client 11"></div>
+        <div class="logo-item"><img src="client12.png" alt="Client 12"></div>
+    </div>
+</section>
+
+    <!-- Promo Section -->
+    <div class="promo-section">
+        <h2>Konsultasi Sekarang, Wujudkan Perlahan</h2>
+        <p>We are committed to delivering value and seamless communication.
+Reach out to us today</p>
+        <div class="promo-discount">Diskon Up To 20%</div>
+        <a href="https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20klaim%20diskon20%%20dari%20salah%20satu%20produk" class="promo-button">Claim Your Discount</a>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">Contact Us</h2>
+        <p class="section-subtitle">Let's start your digital transformation journey</p>
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>Email</h3>
+                    <a href="mailto:cs@aksanara.com">cs@aksanara.com
+</a>
+               <div class="contact-item">
+    <h3>Phone / WhatsApp</h3>
+    <a href="https://wa.me/6281234567890?text=Halo%20Aksanara,%20saya%20tertarik%20dengan%20layanan%20Anda" target="_blank">+62 812-8989-9713</a>
+</div>
+                <div class="contact-item">
+    <h3>Our Location</h3>
+    <a href="https://maps.app.goo.gl/DLg69rSPHr5c2eL39" target="_blank" style="text-decoration:underline; color:#0072ae;">
+        Jl. Galunggung 1, No.1, Kelurahan Lingkar Selatan, Kecamatan Lengkong, Kota Bandung, 40263
+    </a>
+</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Aksanara. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
